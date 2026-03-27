@@ -31,12 +31,17 @@ Workflow
 
 
 📁 File Structure
+
 /billing-system
+
+│── README.md
+
+/src
 │── main.cpp
 │── BillingSystem.h
 │── BillingSystem.cpp
 │── billing.txt
-│── README.md
+
 
 
 Requirements
