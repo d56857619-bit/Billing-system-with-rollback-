@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: C++ Build
 
 on:
   push:
@@ -8,16 +8,21 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    # 1️⃣ Checkout your repository
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 2️⃣ Install g++ compiler
+    - name: Install g++
+      run: sudo apt update && sudo apt install -y g++
+
+    # 3️⃣ Compile your C++ files
+    - name: Compile project
+      run: g++ src/main.cpp src/BillingSystem.cpp -o billing
+
+    # 4️⃣ Optional: Run the program (won’t work interactively)
+    # - name: Run program
+    #   run: ./billing
